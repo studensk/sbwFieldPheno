@@ -23,14 +23,17 @@ ID (a unique site id)}
 
 \item{period}{observation interval of weather data; can be one of 'hour' or 'day'}
 
-\item{larval}{development stage to be predicted; one of 'L3', 'L4', 'L5',
+\item{stage}{larval development stage to be predicted; one of 'L3', 'L4', 'L5',
 'L6', 'Pupa' or 'All'}
 
-\item{if}{TRUE, return empirical CDF (density object) of predicted days}
+\item{ecdf}{if TRUE, return empirical CDF (density object) of predicted days}
 
-\item{number}{of individuals in the population per posterior sample}
+\item{n.post}{number of posterior samples to simulate from (max 100)}
 
-\item{Matrix}{of array of Julian dates; number of individuals x n.post x stages}
+\item{individuals}{number of individuals in the population per posterior sample}
+}
+\value{
+Matrix or array of Julian dates; dimensions are \code{individuals*n.post*stages}
 }
 \description{
 Predict days to development given a set of daily or hourly temperature data

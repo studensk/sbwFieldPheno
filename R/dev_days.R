@@ -4,12 +4,12 @@
 #' ID (a unique site id)
 #' @param colony colony identifier; one of 'AB', 'IPQL', 'NB', 'NWT', 'ON', 'QC'
 #' @param period observation interval of weather data; can be one of 'hour' or 'day'
-#' @param larval development stage to be predicted; one of 'L3', 'L4', 'L5',
+#' @param stage larval development stage to be predicted; one of 'L3', 'L4', 'L5',
 #' 'L6', 'Pupa' or 'All'
-#' @param if TRUE, return empirical CDF (density object) of predicted days
-#' @param number of posterior samples to simulate from (max 100)
-#' @param number of individuals in the population per posterior sample
-#' @param Matrix of array of Julian dates; number of individuals x n.post x stages
+#' @param ecdf if TRUE, return empirical CDF (density object) of predicted days
+#' @param n.post number of posterior samples to simulate from (max 100)
+#' @param individuals number of individuals in the population per posterior sample
+#' @returns Matrix or array of Julian dates; dimensions are `individuals*n.post*stages`
 
 dev_days <- function(weather,
                      colony = 'NB',
