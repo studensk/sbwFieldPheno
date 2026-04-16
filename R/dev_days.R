@@ -9,7 +9,6 @@
 #' @param ecdf if TRUE, return empirical CDF (density object) of predicted days
 #' @param n.post number of posterior samples to simulate from (max 100)
 #' @param individuals number of individuals in the population per posterior sample
-#' @importFrom dplyr left_join join_by
 #' @returns Matrix or array of Julian dates; dimensions are `individuals*n.post*stages`
 #' @export
 
@@ -59,7 +58,7 @@ dev_days <- function(weather,
                    ifelse(all.dates > 1, 's', '')))
   }
 
-  info.sub <- subset(curve_info, colony == colony) |>
+  info.sub <- subset(sbwFieldPheno::curve_info, colony == colony) |>
     dplyr::arrange(run.index, stage)
   inds <- sort(info.sub$index)
   run.inds <- sort(sample(unique(info.sub$run.index),
@@ -77,7 +76,7 @@ dev_days <- function(weather,
 
     for (j in seq(new.inds)) {
       ind <- new.inds[[j]]
-      isplines[,j] <- with(subset(curves, index == ind), {
+      isplines[,j] <- with(subset(sbwFieldPheno::curves, index == ind), {
         spl <- splines::interpSpline(temp, rate/div)
         predict(spl, weather.clean$Temp)$y
       })
