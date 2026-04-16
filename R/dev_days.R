@@ -58,7 +58,7 @@ dev_days <- function(weather,
                    ifelse(all.dates > 1, 's', '')))
   }
 
-  info.sub <- subset(sbwFieldPheno::curve_info, colony == colony) |>
+  info.sub <- subset(curve_info, colony == colony) |>
     dplyr::arrange(run.index, stage)
   inds <- sort(info.sub$index)
   run.inds <- sort(sample(unique(info.sub$run.index),
@@ -76,7 +76,7 @@ dev_days <- function(weather,
 
     for (j in seq(new.inds)) {
       ind <- new.inds[[j]]
-      isplines[,j] <- with(subset(sbwFieldPheno::curves, index == ind), {
+      isplines[,j] <- with(subset(curves, index == ind), {
         spl <- splines::interpSpline(temp, rate/div)
         predict(spl, weather.clean$Temp)$y
       })
