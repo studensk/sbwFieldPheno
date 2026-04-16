@@ -48,7 +48,7 @@ dev_days <- function(weather,
   all.dates <- weather.clean |>
     dplyr::select(DateTime) |>
     dplyr::reframe(DateTime = seq(min(DateTime), max(DateTime), by = period)) |>
-    dplyr::left_join(weather.clean, by = join_by(DateTime)) |>
+    dplyr::left_join(weather.clean, by = dplyr::join_by(DateTime)) |>
     subset(is.na(Temp)) |>
     unique() |>
     nrow()
@@ -85,7 +85,7 @@ dev_days <- function(weather,
     stage.mat[,i,] <- t(replicate(individuals, {
       ind <- 0
       inds <- vector(length = length(stages))
-      mult <- exp(rnorm(nrow(sub), 0, sub$s_eps))
+      mult <- exp(stats::rnorm(nrow(sub), 0, sub$s_eps))
 
       for (s in seq(stages)) {
         if (stage == stages[s]) {break}
@@ -99,7 +99,7 @@ dev_days <- function(weather,
   }
   if (ecdf) {
     den <- apply(stage.mat, 3, function(x) {
-      d <- density(x)
+      d <- stats::density(x)
       d$y <- d$y/sum(d$y)
       return(d)
     })
