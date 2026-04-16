@@ -57,7 +57,7 @@ dev_days <- function(weather,
                    ifelse(all.dates > 1, 's', '')))
   }
 
-  info.sub <- subset(curve.info, colony == colony) |>
+  info.sub <- subset(curve_info, colony == colony) |>
     arrange(run.index, stage)
   inds <- sort(info.sub$index)
   run.inds <- sort(sample(unique(info.sub$run.index),
