@@ -49,7 +49,7 @@ dev_days <- function(weather,
     dplyr::select(DateTime) |>
     dplyr::reframe(DateTime = seq(min(DateTime), max(DateTime), by = period)) |>
     dplyr::left_join(weather.clean, by = join_by(DateTime)) |>
-    dplyr::subset(is.na(Temp)) |>
+    subset(is.na(Temp)) |>
     unique() |>
     nrow()
   if (all.dates > 0) {
@@ -58,7 +58,7 @@ dev_days <- function(weather,
                    ifelse(all.dates > 1, 's', '')))
   }
 
-  info.sub <- dplyr::subset(curve_info, colony == colony) |>
+  info.sub <- subset(curve_info, colony == colony) |>
     dplyr::arrange(run.index, stage)
   inds <- sort(info.sub$index)
   run.inds <- sort(sample(unique(info.sub$run.index),
@@ -71,12 +71,12 @@ dev_days <- function(weather,
   isplines <- matrix(nrow = nweather, ncol = length(stages))
 
   for (i in seq(run.inds)) {
-    sub <- dplyr::subset(info.sub, run.index == run.inds[i])
+    sub <- subset(info.sub, run.index == run.inds[i])
     new.inds <- sub$index
 
     for (j in seq(new.inds)) {
       ind <- new.inds[[j]]
-      isplines[,j] <- with(dplyr::subset(curves, index == ind), {
+      isplines[,j] <- with(subset(curves, index == ind), {
         spl <- splines::interpSpline(temp, rate/div)
         predict(spl, weather.clean$Temp)$y
       })
