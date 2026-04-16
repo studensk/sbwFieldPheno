@@ -9,6 +9,7 @@
 #' @param ecdf if TRUE, return empirical CDF (density object) of predicted days
 #' @param n.post number of posterior samples to simulate from (max 100)
 #' @param individuals number of individuals in the population per posterior sample
+#' @importFrom dplyr left_join join_by
 #' @returns Matrix or array of Julian dates; dimensions are `individuals*n.post*stages`
 #' @export
 
