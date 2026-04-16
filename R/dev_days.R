@@ -10,6 +10,7 @@
 #' @param n.post number of posterior samples to simulate from (max 100)
 #' @param individuals number of individuals in the population per posterior sample
 #' @returns Matrix or array of Julian dates; dimensions are `individuals*n.post*stages`
+#' @export
 
 dev_days <- function(weather,
                      colony = 'NB',
