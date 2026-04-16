@@ -1,10 +1,10 @@
 Package: sbwFieldPheno
-Title: What the Package Does (One Line, Title Case)
+Title: Predict SBW Life Stage Timing
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Kala", "Studens", , "kala.studens@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: Predict days to development given a set of daily or hourly temperature data.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
@@ -15,6 +15,7 @@ Depends:
 LazyData: true
 URL: https://github.com/studensk/sbwFieldPheno
 BugReports: https://github.com/studensk/sbwFieldPheno/issues
-Import:
-	tidyverse,
-	splines
+Imports: 
+    dplyr,
+    lubridate,
+    splines
