@@ -2,7 +2,7 @@
 #' @param weather user-defined weather dataset; requires columns:
 #' Temp (temperature in degrees Celsius), Date (YYYY-MM-DD), Hour,
 #' ID (a unique site id)
-#' @param colony colony identifier; one of 'AB', 'IPQL', 'NB', 'NWT', 'ON', 'QC'
+#' @param sbwcolony colony identifier; one of 'AB', 'IPQL', 'NB', 'NWT', 'ON', 'QC'
 #' @param period observation interval of weather data; can be one of 'hour' or 'day'
 #' @param stage larval development stage to be predicted; one of 'L3', 'L4', 'L5',
 #' 'L6', 'Pupa' or 'All'
@@ -13,7 +13,7 @@
 #' @export
 
 dev_days <- function(weather,
-                     colony = 'NB',
+                     sbwcolony = 'NB',
                      period = 'hour',
                      stage = 'Pupa',
                      ecdf = FALSE,
@@ -58,7 +58,7 @@ dev_days <- function(weather,
                    ifelse(all.dates > 1, 's', '')))
   }
 
-  info.sub <- subset(curve_info, colony == colony) |>
+  info.sub <- subset(curve_info, colony == sbwcolony) |>
     dplyr::arrange(run.index, stage)
   inds <- sort(info.sub$index)
   run.inds <- sort(sample(unique(info.sub$run.index),

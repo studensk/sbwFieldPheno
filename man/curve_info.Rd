@@ -11,6 +11,7 @@ A data frame with 3000 rows and 4 columns:
 \item{stage}{Development stage; one of L2, L3, L4, L5, L6}
 \item{run.index}{Posterior sample index}
 \item{colony}{SBW colony membership; one of AB, IPQL, NB, NWT, ON, QC}
+\item{s_eps}{Standard deviation of individual multipliers on median dev rate}
 }
 }
 \usage{

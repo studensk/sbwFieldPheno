@@ -6,7 +6,7 @@
 \usage{
 dev_days(
   weather,
-  colony = "NB",
+  sbwcolony = "NB",
   period = "hour",
   stage = "Pupa",
   ecdf = FALSE,
@@ -19,7 +19,7 @@ dev_days(
 Temp (temperature in degrees Celsius), Date (YYYY-MM-DD), Hour,
 ID (a unique site id)}
 
-\item{colony}{colony identifier; one of 'AB', 'IPQL', 'NB', 'NWT', 'ON', 'QC'}
+\item{sbwcolony}{colony identifier; one of 'AB', 'IPQL', 'NB', 'NWT', 'ON', 'QC'}
 
 \item{period}{observation interval of weather data; can be one of 'hour' or 'day'}
 
