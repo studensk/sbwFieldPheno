@@ -16,8 +16,7 @@ dev_days(
 }
 \arguments{
 \item{weather}{user-defined weather dataset; requires columns:
-Temp (temperature in degrees Celsius), Date (YYYY-MM-DD), Hour,
-ID (a unique site id)}
+Temp (temperature in degrees Celsius), Date (YYYY-MM-DD), Hour (integer, 0-23)}
 
 \item{sbwcolony}{colony identifier; one of 'AB', 'IPQL', 'NB', 'NWT', 'ON', 'QC'}
 

@@ -1,7 +1,6 @@
 #' Predict days to development given a set of daily or hourly temperature data
 #' @param weather user-defined weather dataset; requires columns:
-#' Temp (temperature in degrees Celsius), Date (YYYY-MM-DD), Hour,
-#' ID (a unique site id)
+#' Temp (temperature in degrees Celsius), Date (YYYY-MM-DD), Hour (integer, 0-23)
 #' @param sbwcolony colony identifier; one of 'AB', 'IPQL', 'NB', 'NWT', 'ON', 'QC'
 #' @param period observation interval of weather data; can be one of 'hour' or 'day'
 #' @param stage larval development stage to be predicted; one of 'L3', 'L4', 'L5',
